@@ -22,16 +22,10 @@ namespace WindowsFormsApplication1
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
             conn.Open();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            
-
-        }
 
         private void plusItem(object sender, EventArgs e)
         {
@@ -106,15 +100,12 @@ namespace WindowsFormsApplication1
             int order_id = random.Next(10000, 99999);
             String mode_of_payment = comboBox1.Text;
             String total_cost = cost.Text;
-            String cust_id = "12345";
+            String cust_id = "CUST012";
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = conn;
-            oracleCommand.CommandText = "INSERT INTO transactions VALUES (:cust_id, :order_id, /*:mode_of_payment,*/ :total_cost)";
-            oracleCommand.Parameters.Add("cust_id", OracleDbType.Varchar2).Value = cust_id;
-            oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
-            /*oracleCommand.Parameters.Add("mode_of_payment", OracleDbType.Varchar2).Value = mode_of_payment;*/
-            oracleCommand.Parameters.Add("total_cost", OracleDbType.Decimal).Value = total_cost;
+            oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
+
             oracleCommand.ExecuteNonQuery();
 
 
@@ -122,13 +113,17 @@ namespace WindowsFormsApplication1
             foreach (String id in ids)
             {
                 Label lbl = (Label)panel1.Controls["Q" + id];
+
                 int quantity = Int32.Parse(lbl.Text);
-                oracleCommand.CommandText = "INSERT INTO order_details VALUES (:order_id, :item_id, :quantity)";
-                oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
-                oracleCommand.Parameters.Add("item_id", OracleDbType.Varchar2).Value = id;
-                oracleCommand.Parameters.Add("quantity", OracleDbType.Int32).Value = quantity;
+
+                String order_id_str = order_id.ToString();
+
+                oracleCommand.CommandText = "INSERT INTO order_details VALUES ('" + order_id_str + "', '" + id + "', " + quantity + ")";
+
                 oracleCommand.ExecuteNonQuery();
             }
+
+            MessageBox.Show("Thank you");
 
 
         }

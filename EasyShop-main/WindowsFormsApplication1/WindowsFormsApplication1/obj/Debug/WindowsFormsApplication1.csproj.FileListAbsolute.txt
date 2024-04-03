@@ -73,3 +73,47 @@ C:\Users\Farhat Jalal\Desktop\dbms_project\EasyShop\EasyShop-main\WindowsFormsAp
 C:\Users\Farhat Jalal\Desktop\dbms_project\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
 C:\Users\Farhat Jalal\Desktop\dbms_project\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
 C:\Users\Farhat Jalal\Desktop\dbms_project\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Buffers.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Formats.Asn1.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Memory.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Text.Json.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.ValueTuple.dll
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Buffers.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Formats.Asn1.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Memory.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Text.Json.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\System.ValueTuple.xml
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.AssemblyReference.cache
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.cust_det.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.dashboard.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.delivery.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.emp_det.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.feedback.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.login.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.employee.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.hoursheet.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.item_det.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.manager.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.reg_cus.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.stock.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.transaction.resources
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

@@ -36,6 +36,7 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Employee Logged In!");
                 employee form2 = new employee();
                 form2.Show();
+               
             }
             else
                 MessageBox.Show("Incorrect Username or Password");
