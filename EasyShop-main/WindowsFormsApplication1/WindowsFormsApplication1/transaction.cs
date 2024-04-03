@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace WindowsFormsApplication1
 {
@@ -21,13 +22,119 @@ namespace WindowsFormsApplication1
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=fishfish");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
             conn.Open();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+            
+
+        }
+
+        private void plusItem(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String name = btn.Name;
+            String id = name.Substring(2);
+            Label lbl = (Label)panel1.Controls["Q" + id];
+
+            int quantity = Int32.Parse(lbl.Text);
+            quantity++;
+            lbl.Text = quantity.ToString();
+            addCost(Int32.Parse(((Label)panel1.Controls["P" + id]).Text));
+
+
+        }
+
+        private void addCost(int price)
+        {
+            cost.Text = (Int32.Parse(cost.Text) + price).ToString();
+        }
+
+        private void minusItem(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String name = btn.Name;
+            String id = name.Substring(2);
+
+            Label lbl = (Label)panel1.Controls["Q" + id];
+            int quantity = Int32.Parse(lbl.Text);
+            quantity--;
+            lbl.Text = quantity.ToString();
+            int y_pos = lbl.Location.Y;
+            int price = Int32.Parse(((Label)panel1.Controls["P" + id]).Text);
+            addCost(-price);
+            if (quantity == 0)
+            {
+                Label lbl1 = (Label)panel1.Controls["L" + id];
+                Label lbl2 = (Label)panel1.Controls["P" + id];
+                Label lbl3 = (Label)panel1.Controls["Q" + id];
+                Button btn1 = (Button)panel1.Controls["Mi" + id];
+                Button btn2 = (Button)panel1.Controls["Pl" + id];
+
+                panel1.Controls.Remove(lbl1);
+                panel1.Controls.Remove(lbl2);
+                panel1.Controls.Remove(lbl3);
+                panel1.Controls.Remove(btn1);
+                panel1.Controls.Remove(btn2);
+            }
+            else
+            {
+                return;
+            }
+
+            ids.Remove(id);
+
+            // go through all controls in panel1 and adjust the y position of each control if y is greater than the y position of the removed control
+
+            foreach (Control c in panel1.Controls)
+            {
+                if (c.Location.Y > y_pos)
+                {
+                    c.Location = new Point(c.Location.X, c.Location.Y - 40);
+                }
+            }
+            y -= 40;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // generate random order id
+            Random random = new Random();
+            int order_id = random.Next(10000, 99999);
+            String mode_of_payment = comboBox1.Text;
+            String total_cost = cost.Text;
+            String cust_id = "12345";
+
+            OracleCommand oracleCommand = new OracleCommand();
+            oracleCommand.Connection = conn;
+            oracleCommand.CommandText = "INSERT INTO transactions VALUES (:cust_id, :order_id, :mode_of_payment, :total_cost)";
+            oracleCommand.Parameters.Add("cust_id", OracleDbType.Varchar2).Value = cust_id;
+            oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
+            oracleCommand.Parameters.Add("mode_of_payment", OracleDbType.Varchar2).Value = mode_of_payment;
+            oracleCommand.Parameters.Add("total_cost", OracleDbType.Decimal).Value = total_cost;
+            oracleCommand.ExecuteNonQuery();
+
+
+            // insert all items in the order into the order_details table
+            foreach (String id in ids)
+            {
+                Label lbl = (Label)panel1.Controls["Q" + id];
+                int quantity = Int32.Parse(lbl.Text);
+                oracleCommand.CommandText = "INSERT INTO order_details VALUES (:order_id, :item_id, :quantity)";
+                oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
+                oracleCommand.Parameters.Add("item_id", OracleDbType.Varchar2).Value = id;
+                oracleCommand.Parameters.Add("quantity", OracleDbType.Int32).Value = quantity;
+                oracleCommand.ExecuteNonQuery();
+            }
+
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = conn;
             oracleCommand.CommandText = "SELECT * FROM item_details WHERE item_id = :id";
@@ -136,106 +243,10 @@ namespace WindowsFormsApplication1
             panel1.Controls.Add(quantity);
 
             y += 40;
-
         }
 
-        private void plusItem(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            String name = btn.Name;
-            String id = name.Substring(2);
-            Label lbl = (Label)panel1.Controls["Q" + id];
-
-            int quantity = Int32.Parse(lbl.Text);
-            quantity++;
-            lbl.Text = quantity.ToString();
-            addCost(Int32.Parse(((Label)panel1.Controls["P" + id]).Text));
-
-
-        }
-
-        private void addCost(int price)
-        {
-            cost.Text = (Int32.Parse(cost.Text) + price).ToString();
-        }
-
-        private void minusItem(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            String name = btn.Name;
-            String id = name.Substring(2);
-
-            Label lbl = (Label)panel1.Controls["Q" + id];
-            int quantity = Int32.Parse(lbl.Text);
-            quantity--;
-            lbl.Text = quantity.ToString();
-            int y_pos = lbl.Location.Y;
-            int price = Int32.Parse(((Label)panel1.Controls["P" + id]).Text);
-            addCost(-price);
-            if (quantity == 0)
-            {
-                Label lbl1 = (Label)panel1.Controls["L" + id];
-                Label lbl2 = (Label)panel1.Controls["P" + id];
-                Label lbl3 = (Label)panel1.Controls["Q" + id];
-                Button btn1 = (Button)panel1.Controls["Mi" + id];
-                Button btn2 = (Button)panel1.Controls["Pl" + id];
-
-                panel1.Controls.Remove(lbl1);
-                panel1.Controls.Remove(lbl2);
-                panel1.Controls.Remove(lbl3);
-                panel1.Controls.Remove(btn1);
-                panel1.Controls.Remove(btn2);
-            }
-            else
-            {
-                return;
-            }
-
-            ids.Remove(id);
-
-            // go through all controls in panel1 and adjust the y position of each control if y is greater than the y position of the removed control
-
-            foreach (Control c in panel1.Controls)
-            {
-                if (c.Location.Y > y_pos)
-                {
-                    c.Location = new Point(c.Location.X, c.Location.Y - 40);
-                }
-            }
-            y -= 40;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // generate random order id
-            Random random = new Random();
-            int order_id = random.Next(10000, 99999);
-            String mode_of_payment = comboBox1.Text;
-            String total_cost = cost.Text;
-            String cust_id = "12345";
-
-            OracleCommand oracleCommand = new OracleCommand();
-            oracleCommand.Connection = conn;
-            oracleCommand.CommandText = "INSERT INTO transactions VALUES (:cust_id, :order_id, :mode_of_payment, :total_cost)";
-            oracleCommand.Parameters.Add("cust_id", OracleDbType.Varchar2).Value = cust_id;
-            oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
-            oracleCommand.Parameters.Add("mode_of_payment", OracleDbType.Varchar2).Value = mode_of_payment;
-            oracleCommand.Parameters.Add("total_cost", OracleDbType.Decimal).Value = total_cost;
-            oracleCommand.ExecuteNonQuery();
-
-
-            // insert all items in the order into the order_details table
-            foreach (String id in ids)
-            {
-                Label lbl = (Label)panel1.Controls["Q" + id];
-                int quantity = Int32.Parse(lbl.Text);
-                oracleCommand.CommandText = "INSERT INTO order_details VALUES (:order_id, :item_id, :quantity)";
-                oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
-                oracleCommand.Parameters.Add("item_id", OracleDbType.Varchar2).Value = id;
-                oracleCommand.Parameters.Add("quantity", OracleDbType.Int32).Value = quantity;
-                oracleCommand.ExecuteNonQuery();
-            }
-
 
         }
     }
