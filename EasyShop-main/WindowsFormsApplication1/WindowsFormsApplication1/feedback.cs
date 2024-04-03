@@ -47,5 +47,17 @@ namespace WindowsFormsApplication1
                 comments.ForeColor = System.Drawing.SystemColors.GrayText;
             }
         }
+
+        private void feedback_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        employee employee = new employee();
+            this.Close();
+            employee.Show();
+        }
     }
 }

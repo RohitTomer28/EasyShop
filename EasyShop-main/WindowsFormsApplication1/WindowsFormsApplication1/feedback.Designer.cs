@@ -30,6 +30,7 @@
         {
             this.rating = new System.Windows.Forms.TextBox();
             this.comments = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rating
@@ -50,6 +51,17 @@
             this.comments.TabIndex = 2;
             this.comments.Text = "";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(333, 372);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 62);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // feedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -57,11 +69,13 @@
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources._13;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comments);
             this.Controls.Add(this.rating);
             this.DoubleBuffered = true;
             this.Name = "feedback";
             this.Text = "feedback";
+            this.Load += new System.EventHandler(this.feedback_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -70,5 +84,6 @@
         #endregion
         private System.Windows.Forms.TextBox rating;
         private System.Windows.Forms.RichTextBox comments;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -28,3 +28,4 @@ D:\rohit\manipal\sem 4\dbms\lab project\EasyShop-main\EasyShop-main\WindowsForms
 D:\rohit\manipal\sem 4\dbms\lab project\EasyShop-main\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.stock.resources
 D:\rohit\manipal\sem 4\dbms\lab project\EasyShop-main\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.login.resources
 D:\rohit\manipal\sem 4\dbms\lab project\EasyShop-main\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.feedback.resources
+D:\rohit\manipal\sem 4\dbms\lab project\EasyShop-main\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.transaction.resources
