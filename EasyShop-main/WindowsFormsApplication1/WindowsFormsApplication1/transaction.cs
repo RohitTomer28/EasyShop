@@ -110,10 +110,10 @@ namespace WindowsFormsApplication1
 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = conn;
-            oracleCommand.CommandText = "INSERT INTO transactions VALUES (:cust_id, :order_id, :mode_of_payment, :total_cost)";
+            oracleCommand.CommandText = "INSERT INTO transactions VALUES (:cust_id, :order_id, /*:mode_of_payment,*/ :total_cost)";
             oracleCommand.Parameters.Add("cust_id", OracleDbType.Varchar2).Value = cust_id;
             oracleCommand.Parameters.Add("order_id", OracleDbType.Varchar2).Value = order_id.ToString();
-            oracleCommand.Parameters.Add("mode_of_payment", OracleDbType.Varchar2).Value = mode_of_payment;
+            /*oracleCommand.Parameters.Add("mode_of_payment", OracleDbType.Varchar2).Value = mode_of_payment;*/
             oracleCommand.Parameters.Add("total_cost", OracleDbType.Decimal).Value = total_cost;
             oracleCommand.ExecuteNonQuery();
 

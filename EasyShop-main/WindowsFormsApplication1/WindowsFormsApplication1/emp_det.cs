@@ -47,7 +47,7 @@ namespace WindowsFormsApplication1
         {
             ConnectDB();
 
-            using (OracleCommand cmd = new OracleCommand("Select * from employee", conn))
+            using (OracleCommand cmd = new OracleCommand("Select * from employee natural join emp_phone order by emp_id", conn))
             {
                 using (OracleDataAdapter oda = new OracleDataAdapter(cmd))
                 {
@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
             // Assuming 'textBoxEmpId' is the TextBox where the emp_id is entered.
             string empId = empid.Text;
 
-            using (OracleCommand cmd = new OracleCommand("SELECT * FROM employee WHERE emp_id = :empId", conn))
+            using (OracleCommand cmd = new OracleCommand("SELECT * FROM employee natural join emp_phone WHERE emp_id = :empId order by emp_id", conn))
             {
                 // Add the parameter to the command to filter by emp_id
                 cmd.Parameters.Add(new OracleParameter("empId", empId));

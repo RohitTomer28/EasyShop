@@ -32,8 +32,6 @@ namespace WindowsFormsApplication1
 
         private void search_Click(object sender, EventArgs e)
         {
-            
-            
                 ConnectDB();
 
                 // Assuming 'textBoxMonth' is the TextBox where the month is entered.
@@ -73,6 +71,11 @@ namespace WindowsFormsApplication1
                 }
             }
             conn.Close();
+        }
+
+        private void show_all_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
