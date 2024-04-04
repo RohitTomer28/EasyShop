@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
                 oracleCommand.ExecuteNonQuery();
             }
 
-            MessageBox.Show("Thank you");
+            MessageBox.Show("Thank you \n refno: " + order_id);
 
 
         }

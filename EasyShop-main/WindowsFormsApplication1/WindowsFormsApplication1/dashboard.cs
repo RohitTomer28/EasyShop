@@ -23,5 +23,10 @@ namespace WindowsFormsApplication1
             this.Close();
             manager.Show();
         }
+
+        private void dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

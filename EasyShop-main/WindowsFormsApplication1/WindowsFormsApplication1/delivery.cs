@@ -23,5 +23,12 @@ namespace WindowsFormsApplication1
             this.Close();
             manager.Show();
         }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+
+ 
+
+        }
     }
 }
