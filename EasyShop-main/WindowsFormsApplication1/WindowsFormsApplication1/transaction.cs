@@ -38,8 +38,6 @@ namespace WindowsFormsApplication1
             quantity++;
             lbl.Text = quantity.ToString();
             addCost(Int32.Parse(((Label)panel1.Controls["P" + id]).Text));
-
-
         }
 
         private void addCost(int price)
