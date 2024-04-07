@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
         private void register_Click(object sender, EventArgs e)
         {
 
-            OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=project");
+            OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=system");
             app.Open();
 
             string n = name.Text;
@@ -37,12 +37,15 @@ namespace WindowsFormsApplication1
             String phone = ph.Text;
 
             string firstn = n.Split(' ')[0];
-            string lastn = n.Split(' ')[1];
+
+            //take last name only if n has more than 1 word
+            string lastn = n.Split(' ').Length > 1 ? n.Split(' ')[1] : "";
+            
 
             int randid = new Random().Next(100000, 999999);
 
             string status = "normal";
-            string custId = "C" + randid;
+            string custId = "CUST" + randid;
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = app;

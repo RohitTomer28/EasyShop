@@ -125,7 +125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources._152;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(860, 510);
+            this.ClientSize = new System.Drawing.Size(862, 510);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.cost);
@@ -137,6 +137,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "transaction";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.transaction_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

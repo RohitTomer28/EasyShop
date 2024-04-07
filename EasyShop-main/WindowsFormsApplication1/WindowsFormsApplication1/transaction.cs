@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
             conn.Open();
         }
 
@@ -98,12 +98,34 @@ namespace WindowsFormsApplication1
             int order_id = random.Next(10000, 99999);
             String mode_of_payment = comboBox1.Text;
             String total_cost = cost.Text;
-            String cust_id = "CUST012";
+            String cust_id;
 
+
+            // take phone_number from textBox2, get the customer id from the customer_details table using phone_number and save it in cust_id
+            // if the phone number is not found, display messagebox
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = conn;
-            oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
+            oracleCommand.CommandText = "SELECT customer_id FROM customer_details WHERE phone_number = :phone_number";
+            oracleCommand.Parameters.Add("phone_number", textBox2.Text);
+            
+            OracleDataReader reader = oracleCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                cust_id = reader.GetString(0);
+            }
+            else
+            {
+                MessageBox.Show("Customer not found. Enter phone number");
+                return;
+            }
 
+
+            // insert order into the transaction table
+            oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
+            oracleCommand.ExecuteNonQuery();
+
+            // insert order_id, customer_id, mode_of_payment into the places_order table
+            oracleCommand.CommandText = "INSERT INTO places_order VALUES ('" + order_id + "', '" + cust_id + "', '" + mode_of_payment + "')";
             oracleCommand.ExecuteNonQuery();
 
 
@@ -123,7 +145,10 @@ namespace WindowsFormsApplication1
 
             MessageBox.Show("Thank you \n refno: " + order_id);
 
-
+            // open feedback form
+            feedback feedback = new feedback();
+            this.Close();
+            feedback.Show();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -239,6 +264,11 @@ namespace WindowsFormsApplication1
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void transaction_Load(object sender, EventArgs e)
         {
 
         }

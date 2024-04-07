@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-        employee employee = new employee();
+            employee employee = new employee();
             this.Close();
             employee.Show();
         }
