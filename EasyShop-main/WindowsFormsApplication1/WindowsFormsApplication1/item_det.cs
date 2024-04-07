@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
 
         public void ConnectDB()
         {
-            conn = new OracleConnection("Data Source=localhost:1521;Persist Security Info=True;User ID=system;Password=1234");
+            conn = new OracleConnection("Data Source=localhost:1521;Persist Security Info=True;User ID=project;Password=1234");
             conn.Open();
         }
         private void back_Click(object sender, EventArgs e)
@@ -64,6 +64,11 @@ namespace WindowsFormsApplication1
                 }
             }
             conn.Close();
+        }
+
+        private void item_det_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

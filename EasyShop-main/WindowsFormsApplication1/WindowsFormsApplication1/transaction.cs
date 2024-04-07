@@ -16,13 +16,15 @@ namespace WindowsFormsApplication1
         int y = 19;
         OracleConnection conn;
 
+        public String cust, order;
+
         // list to store the ids of the items
         List<String> ids = new List<String>();
 
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
             conn.Open();
         }
 
@@ -119,6 +121,8 @@ namespace WindowsFormsApplication1
                 return;
             }
 
+            cust = cust_id;
+            order = order_id.ToString();
 
             // insert order into the transaction table
             oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
@@ -147,7 +151,6 @@ namespace WindowsFormsApplication1
 
             // open feedback form
             feedback feedback = new feedback();
-            this.Close();
             feedback.Show();
         }
 
@@ -163,7 +166,6 @@ namespace WindowsFormsApplication1
             String ItemID = reader.GetString(0);
             String ItemName = reader.GetString(1);
             String ItemPrice = reader.GetString(3);
-
 
             int scroll = panel1.VerticalScroll.Value;
             int y_pos = y - scroll;
