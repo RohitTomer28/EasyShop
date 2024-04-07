@@ -56,8 +56,6 @@ namespace WindowsFormsApplication1
 
         private void feedback_Load(object sender, EventArgs e)
         {
-            label1.Text = order;
-            label2.Text = cust;
         }
 
         private void button1_Click(object sender, EventArgs e)

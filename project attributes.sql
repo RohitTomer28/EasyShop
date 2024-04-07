@@ -50,6 +50,7 @@ create table feedback(
     order_id varchar(20),
     customer_id varchar(20),
     rating number(2,1),
+comments varchar(300),
     foreign key(order_id) references transactions,
     foreign key(customer_id) references customer_details,
     primary key(order_id)
@@ -323,3 +324,29 @@ INSERT INTO emp_phone VALUES('1011', 9876543220);
 INSERT INTO emp_phone VALUES('1012', 9876543221);
 INSERT INTO emp_phone VALUES('1013', 9876543222);
 INSERT INTO emp_phone VALUES('1014', 9876543223);
+
+
+-- subtract the quantity of the item from stock when an item is sold
+create or replace trigger subtract_from_stock
+after insert on order_details
+for each row
+begin
+    update stock
+    set quantity = quantity - :new.quantity
+    where item_id = :new.item_id;
+end;
+
+
+-- add quantitiy when new delivery is made
+create or replace trigger add_to_stock
+after insert on delivery
+for each row
+begin
+    update stock
+    set quantity = quantity + :new.quantity
+    where item_id = :new.item_id;
+end;
+
+
+
+

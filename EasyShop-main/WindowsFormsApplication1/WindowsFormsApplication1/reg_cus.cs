@@ -40,18 +40,17 @@ namespace WindowsFormsApplication1
 
             //take last name only if n has more than 1 word
             string lastn = n.Split(' ').Length > 1 ? n.Split(' ')[1] : "";
-            
+
+            // take status from combobox
+            string status = statusBox.Text;
 
             int randid = new Random().Next(100000, 999999);
-
-            string status = "normal";
             string custId = "CUST" + randid;
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = app;
 
             cmd.CommandText = "INSERT INTO customer_details VALUES('" + firstn + "','" + lastn + "','" + custId + "','" + phone + "','" + status + "')";
-
 
             cmd.ExecuteNonQuery();
             MessageBox.Show("Customer Registered Successfully");
