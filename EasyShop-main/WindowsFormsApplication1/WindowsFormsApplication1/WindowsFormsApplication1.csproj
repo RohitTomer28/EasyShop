@@ -111,6 +111,12 @@
     <Compile Include="feedback.Designer.cs">
       <DependentUpon>feedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="coupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="coupon.Designer.cs">
+      <DependentUpon>coupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="feedback.resx">
       <DependentUpon>feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="coupon.resx">
+      <DependentUpon>coupon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -286,6 +295,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhatsApp Image 2024-04-07 at 17.47.18_9ba544e3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coupon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />

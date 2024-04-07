@@ -120,11 +120,11 @@ namespace WindowsFormsApplication1
             }
 
             // create a feedback form and pass the order_id and cust_id to it
-            feedback f = new feedback();
-            f.cust = cust_id;
-            f.order = order_id.ToString();
+            coupon c = new coupon();
+            c.cust = cust_id;
+            c.order = order_id.ToString();
 
-            MessageBox.Show("Cust: " + f.cust + "\nOrder: " + f.order);
+            MessageBox.Show("Cust: " + c.cust + "\nOrder: " + c.order);
 
 
             // insert order into the transaction table
@@ -152,8 +152,9 @@ namespace WindowsFormsApplication1
 
             MessageBox.Show("Thank you \n refno: " + order_id);
 
-            // open feedback form
-            f.Show();
+            // open coupon form
+            
+            c.Show();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
