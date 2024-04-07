@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
 
         private void add_Click(object sender, EventArgs e)
         {
-            OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=project");
+            OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=system");
             app.Open();
 
             string itemid = item_id.Text;

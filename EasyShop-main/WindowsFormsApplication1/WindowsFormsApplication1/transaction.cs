@@ -16,15 +16,13 @@ namespace WindowsFormsApplication1
         int y = 19;
         OracleConnection conn;
 
-        public String cust, order;
-
         // list to store the ids of the items
         List<String> ids = new List<String>();
 
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
             conn.Open();
         }
 
@@ -121,8 +119,13 @@ namespace WindowsFormsApplication1
                 return;
             }
 
-            cust = cust_id;
-            order = order_id.ToString();
+            // create a feedback form and pass the order_id and cust_id to it
+            feedback f = new feedback();
+            f.cust = cust_id;
+            f.order = order_id.ToString();
+
+            MessageBox.Show("Cust: " + f.cust + "\nOrder: " + f.order);
+
 
             // insert order into the transaction table
             oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
@@ -150,8 +153,7 @@ namespace WindowsFormsApplication1
             MessageBox.Show("Thank you \n refno: " + order_id);
 
             // open feedback form
-            feedback feedback = new feedback();
-            feedback.Show();
+            f.Show();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

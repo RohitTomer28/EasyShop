@@ -31,6 +31,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.ratingBox = new System.Windows.Forms.TextBox();
             this.commentBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -52,7 +54,6 @@
             this.ratingBox.Name = "ratingBox";
             this.ratingBox.Size = new System.Drawing.Size(158, 46);
             this.ratingBox.TabIndex = 4;
-            this.ratingBox.Text = "l";
             // 
             // commentBox
             // 
@@ -63,6 +64,24 @@
             this.commentBox.Size = new System.Drawing.Size(526, 192);
             this.commentBox.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(94, 300);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 380);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
             // feedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -70,6 +89,8 @@
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources._13;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(900, 563);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.commentBox);
             this.Controls.Add(this.ratingBox);
             this.Controls.Add(this.button1);
@@ -86,5 +107,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox ratingBox;
         private System.Windows.Forms.TextBox commentBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

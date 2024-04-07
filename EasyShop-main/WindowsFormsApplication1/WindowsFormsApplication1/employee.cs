@@ -20,9 +20,9 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            transaction transaction = new transaction();
+            transaction trans1 = new transaction();
             this.Close();
-            transaction.Show(); 
+            trans1.Show(); 
         }
 
         private void button2_Click(object sender, EventArgs e)

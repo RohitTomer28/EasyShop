@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
 
         public void ConnectDB()
         {
-            conn = new OracleConnection("Data Source=localhost:1521;Persist Security Info=True;User ID=project;Password=1234");
+            conn = new OracleConnection("Data Source=localhost:1521;Persist Security Info=True;User ID=system;Password=1234");
             conn.Open();
         }
         private void disp_hr_Click(object sender, EventArgs e)
