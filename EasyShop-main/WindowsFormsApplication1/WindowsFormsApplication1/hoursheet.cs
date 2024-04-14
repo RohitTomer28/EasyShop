@@ -34,27 +34,19 @@ namespace WindowsFormsApplication1
         {
                 ConnectDB();
 
-                // Assuming 'textBoxMonth' is the TextBox where the month is entered.
-                string month = textBox1.Text;
+                //select month from combo box
+                string month = comboBox1.Text;
 
-                // Modify the SQL command to filter by the month.
-                // The 'TO_CHAR' function is used to extract the month part from the date.
-                // Ensure the date format 'MM' matches the format in which the month is entered.
-                using (OracleCommand cmd = new OracleCommand("SELECT * FROM employee_hours WHERE TO_CHAR(w_date, 'MM') = :month", conn))
+                // display the hours worked by employees in the selected month(January, february, etc) from employee_hours table
+                using (OracleCommand cmd = new OracleCommand("Select * from employee_hours where trim(to_char(w_date, 'Month')) = '" + month + "'", conn))
                 {
-                    // Add the parameter to the command to filter by month
-                    cmd.Parameters.Add(new OracleParameter("month", month));
-
                     using (OracleDataAdapter oda = new OracleDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
                         oda.Fill(dt);
-                        dataGridView1.DataSource = dt; // 'dataGridView1' is assumed to be the DataGridView
+                        dataGridView1.DataSource = dt;
                     }
                 }
-                conn.Close();
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,6 +66,11 @@ namespace WindowsFormsApplication1
         }
 
         private void show_all_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

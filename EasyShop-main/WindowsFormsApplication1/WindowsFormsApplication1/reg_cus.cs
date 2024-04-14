@@ -75,5 +75,10 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void statusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
