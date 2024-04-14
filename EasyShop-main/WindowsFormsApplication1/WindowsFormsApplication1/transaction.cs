@@ -107,7 +107,7 @@ namespace WindowsFormsApplication1
             oracleCommand.Connection = conn;
             oracleCommand.CommandText = "SELECT customer_id FROM customer_details WHERE phone_number = :phone_number";
             oracleCommand.Parameters.Add("phone_number", textBox2.Text);
-            
+
             OracleDataReader reader = oracleCommand.ExecuteReader();
             if (reader.Read())
             {
@@ -124,9 +124,6 @@ namespace WindowsFormsApplication1
             c.cust = cust_id;
             c.order = order_id.ToString();
             c.t = double.Parse(total_cost);
-
-            MessageBox.Show("Cust: " + c.cust + "\nOrder: " + c.order);
-
 
             // insert order into the transaction table
             oracleCommand.CommandText = "INSERT INTO transactions VALUES ('" + cust_id + "', '" + order_id + "', " + total_cost + ")";
@@ -150,14 +147,33 @@ namespace WindowsFormsApplication1
                 oracleCommand.ExecuteNonQuery();
 
                 //decrease the quantity of the item in the stock table
-                oracleCommand.CommandText = "UPDATE stock SET quantity = quantity - " + quantity + " WHERE item_id = '" + id + "'";
-                oracleCommand.ExecuteNonQuery();
-            }
-            MessageBox.Show("Thank you \n refno: " + order_id);
+                try
+                {
+                    oracleCommand.CommandText = "UPDATE stock SET quantity = quantity - " + quantity + " WHERE item_id = '" + id + "'";
+                    oracleCommand.ExecuteNonQuery();
 
-            // open coupon form
-            c.Show();
-            this.Close();
+                    //if new quantity is 0, throw an error
+                    oracleCommand.CommandText = "SELECT quantity FROM stock WHERE item_id = '" + id + "'";
+                    OracleDataReader reader1 = oracleCommand.ExecuteReader();
+                    reader1.Read();
+                    int new_quantity = reader1.GetInt32(0);
+                    if (new_quantity < 0)
+                    {
+                        MessageBox.Show("Not enough stock for item " + id);
+                        return;
+                    }
+                    MessageBox.Show("Cust: " + c.cust + "\nOrder: " + c.order);
+                    MessageBox.Show("Thank you \n refno: " + order_id);
+
+                    // open coupon form
+                    c.Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Not enough stock!");
+                }
+            }
         }
 
         private void button2_Click_1(object sender, EventArgs e)

@@ -46,6 +46,7 @@
             // 
             // ratingBox
             // 
+            this.ratingBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ratingBox.Location = new System.Drawing.Point(288, 154);
             this.ratingBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ratingBox.Multiline = true;
@@ -55,6 +56,7 @@
             // 
             // commentBox
             // 
+            this.commentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.commentBox.Location = new System.Drawing.Point(350, 223);
             this.commentBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.commentBox.Multiline = true;

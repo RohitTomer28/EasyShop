@@ -66,7 +66,7 @@ namespace WindowsFormsApplication1
             bool result = double.TryParse(ratingBox.Text, out double rating);
             if (result == false)
             {
-                MessageBox.Show("Please enter a valid rating");
+                MessageBox.Show("Please enter a valid rating!");
                 // clear the text boxes
                 ratingBox.Text = "";
                 commentBox.Text = "";
