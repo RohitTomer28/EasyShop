@@ -117,3 +117,4 @@ C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication
 C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CopyComplete
 C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\anaad\Documents\projects\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Farhat Jalal\Desktop\dbms_project\EasyShop\EasyShop-main\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.coupon.resources

@@ -27,36 +27,53 @@ namespace WindowsFormsApplication1
 
         private void register_Click(object sender, EventArgs e)
         {
+            try
+            {
+                OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=system");
+                app.Open();
 
-            OracleConnection app = new OracleConnection("DATA SOURCE=localhost:1521;PASSWORD=1234;USER ID=system");
-            app.Open();
+                string n = name.Text;
 
-            string n = name.Text;
-            
-            // parse ph.Text
-            String phone = ph.Text;
+                // parse ph.Text
+                String phone = ph.Text;
 
-            string firstn = n.Split(' ')[0];
+                //check if only numbers are entered in phone number
+                if (phone.Any(char.IsLetter))
+                {
+                    MessageBox.Show("Please enter only numbers in phone number");
+                    return;
+                }
 
-            //take last name only if n has more than 1 word
-            string lastn = n.Split(' ').Length > 1 ? n.Split(' ')[1] : "";
+                //check if phone number is 10 digits
+                if (phone.Length != 10)
+                {
+                    MessageBox.Show("Please enter a valid phone number");
+                    return;
+                }
 
-            // take status from combobox
-            string status = statusBox.Text;
+                string firstn = n.Split(' ')[0];
 
-            int randid = new Random().Next(100000, 999999);
-            string custId = "CUST" + randid;
+                //take last name only if n has more than 1 word
+                string lastn = n.Split(' ').Length > 1 ? n.Split(' ')[1] : "";
 
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = app;
+                // take status from combobox
+                string status = statusBox.Text;
 
-            cmd.CommandText = "INSERT INTO customer_details VALUES('" + firstn + "','" + lastn + "','" + custId + "','" + phone + "','" + status + "')";
+                int randid = new Random().Next(100000, 999999);
+                string custId = "CUST" + randid;
 
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Customer Registered Successfully");
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = app;
 
+                cmd.CommandText = "INSERT INTO customer_details VALUES('" + firstn + "','" + lastn + "','" + custId + "','" + phone + "','" + status + "')";
 
-
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer Registered Successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

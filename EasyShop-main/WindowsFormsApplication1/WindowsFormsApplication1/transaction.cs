@@ -159,6 +159,8 @@ namespace WindowsFormsApplication1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            try
+            { 
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = conn;
             oracleCommand.CommandText = "SELECT * FROM item_details WHERE item_id = :id";
@@ -266,6 +268,16 @@ namespace WindowsFormsApplication1
             panel1.Controls.Add(quantity);
 
             y += 40;
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show("There is a problem with the Oracle Connection " + ex.Message);
+            }
+            
+            catch (System.InvalidOperationException ex)
+            {
+                MessageBox.Show("Item not found!");
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
