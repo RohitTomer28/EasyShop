@@ -80,5 +80,10 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void reg_cus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

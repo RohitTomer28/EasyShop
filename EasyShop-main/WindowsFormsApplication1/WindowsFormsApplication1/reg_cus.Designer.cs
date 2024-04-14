@@ -40,7 +40,7 @@
             this.back.BackColor = System.Drawing.Color.Transparent;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Location = new System.Drawing.Point(36, 480);
+            this.back.Location = new System.Drawing.Point(38, 481);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(92, 46);
             this.back.TabIndex = 2;
@@ -107,6 +107,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "reg_cus";
             this.Text = "reg_cus";
+            this.Load += new System.EventHandler(this.reg_cus_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

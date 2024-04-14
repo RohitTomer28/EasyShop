@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.EasyShop;
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.WhatsApp_Image_2024_04_14_at_22_31_16_2cd3173b;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.label5);
