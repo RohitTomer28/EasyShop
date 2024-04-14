@@ -22,12 +22,18 @@ namespace WindowsFormsApplication1
             conn.Open();
         }
         public String order, cust;
+        public double t;
         private void coupon_Load(object sender, EventArgs e)
+        {
+            total_label.Text = t.ToString();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void submit_Click(object sender, EventArgs e)
         {
 
         }
@@ -36,14 +42,22 @@ namespace WindowsFormsApplication1
         {
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select * from coupon where coupon_id = '" + code.Text + "'";
+            cmd.CommandText = "select discount from coupon where coupon_code = '" + code.Text + "'";
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 MessageBox.Show("Coupon applied successfully");
-                /*this.Hide();*/
+                // calculate new total by multiplying with discount and display in label
+                t = t * Convert.ToDouble(dr.GetString(0));
+                total_label.Text = t.ToString();
+
+                //update transaction table with new total
+                cmd.CommandText = "update transactions set total_amount = " + t + " where order_id = " + order;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Total amount updated successfully");
             }
+
             else
             {
                 MessageBox.Show("Invalid coupon");

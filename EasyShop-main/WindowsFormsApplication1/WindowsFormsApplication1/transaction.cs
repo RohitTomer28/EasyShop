@@ -123,6 +123,7 @@ namespace WindowsFormsApplication1
             coupon c = new coupon();
             c.cust = cust_id;
             c.order = order_id.ToString();
+            c.t = double.Parse(total_cost);
 
             MessageBox.Show("Cust: " + c.cust + "\nOrder: " + c.order);
 
