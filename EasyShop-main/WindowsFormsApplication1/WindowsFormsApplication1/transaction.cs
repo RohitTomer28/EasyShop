@@ -147,15 +147,17 @@ namespace WindowsFormsApplication1
                 String order_id_str = order_id.ToString();
 
                 oracleCommand.CommandText = "INSERT INTO order_details VALUES ('" + order_id_str + "', '" + id + "', " + quantity + ")";
+                oracleCommand.ExecuteNonQuery();
 
+                //decrease the quantity of the item in the stock table
+                oracleCommand.CommandText = "UPDATE stock SET quantity = quantity - " + quantity + " WHERE item_id = '" + id + "'";
                 oracleCommand.ExecuteNonQuery();
             }
-
             MessageBox.Show("Thank you \n refno: " + order_id);
 
             // open coupon form
-            
             c.Show();
+            this.Close();
         }
 
         private void button2_Click_1(object sender, EventArgs e)

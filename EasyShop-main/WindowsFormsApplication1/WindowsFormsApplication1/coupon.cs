@@ -35,7 +35,12 @@ namespace WindowsFormsApplication1
 
         private void submit_Click(object sender, EventArgs e)
         {
-
+            //open feedback form
+            feedback f = new feedback();
+            f.order = order;
+            f.cust = cust;
+            f.Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
