@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
             conn.Open();
         }
 
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication1
             {
                 if (c.Location.Y > y_pos)
                 {
-                    c.Location = new Point(c.Location.X, c.Location.Y - 40);
+                    c.Location = new Point((int)(c.Location.X), (int)((c.Location.Y - (40 * dy))));
                 }
             }
             y -= 40;
@@ -175,7 +175,8 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
+        float dx = 1;
+        float dy = 1;
         private void button2_Click_1(object sender, EventArgs e)
         {
             try
@@ -210,11 +211,11 @@ namespace WindowsFormsApplication1
             {
                 BackColor = Color.White,
                 Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                Location = new System.Drawing.Point(23, y_pos),
+                Location = new System.Drawing.Point((int)(23 * dx), (int)( y_pos * dy)),
                 Padding = new System.Windows.Forms.Padding(3, 0, 3, 0),
                 Name = "L" + ItemID,
                 AutoSize = false,
-                Size = new System.Drawing.Size(484, 30),
+                Size = new System.Drawing.Size((int)( 484 * dx), (int)(30 * dy)),
                 TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
                 Text = ItemName
             };
@@ -223,11 +224,11 @@ namespace WindowsFormsApplication1
             {
                 BackColor = Color.White,
                 Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                Location = new System.Drawing.Point(530, y_pos),
+                Location = new System.Drawing.Point((int)(530 * dx), (int)( y_pos * dy)),
                 Padding = new System.Windows.Forms.Padding(3, 0, 3, 0),
                 Name = "P" + ItemID,
                 AutoSize = false,
-                Size = new System.Drawing.Size(54, 30),
+                Size = new System.Drawing.Size((int)(54 * dx), (int)(30 * dy)),
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                 Text = ItemPrice
             };
@@ -235,9 +236,9 @@ namespace WindowsFormsApplication1
             Button min = new Button
             {
                 Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                Location = new System.Drawing.Point(599, y_pos),
+                Location = new System.Drawing.Point((int)(599 * dx), (int)(y_pos * dy)),
                 Name = "Mi" + ItemID,
-                Size = new System.Drawing.Size(42, 29),
+                Size = new System.Drawing.Size((int)(42 * dx), (int)(29 * dy)),
                 Text = "-",
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                 UseVisualStyleBackColor = true
@@ -248,9 +249,9 @@ namespace WindowsFormsApplication1
             Button plus = new Button
             {
                 Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                Location = new System.Drawing.Point(674, y_pos),
+                Location = new System.Drawing.Point((int)(674 * dx), (int)(y_pos * dy)),
                 Name = "Pl" + ItemID,
-                Size = new System.Drawing.Size(40, 29),
+                Size = new System.Drawing.Size((int)(40 * dx), (int)(29 * dy)),
                 Text = "+",
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                 UseVisualStyleBackColor = true,
@@ -264,11 +265,11 @@ namespace WindowsFormsApplication1
             {
                 BackColor = Color.Transparent,
                 Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                Location = new System.Drawing.Point(640, y_pos),
+                Location = new System.Drawing.Point((int)(640 * dx), (int)(y_pos * dy)),
                 Padding = new System.Windows.Forms.Padding(3, 0, 3, 0),
                 Name = "Q" + ItemID,
                 AutoSize = false,
-                Size = new System.Drawing.Size(36, 29),
+                Size = new System.Drawing.Size((int)(36 * dx), (int)(29 * dy)),
                 TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
                 Text = "1"
             };
@@ -304,7 +305,47 @@ namespace WindowsFormsApplication1
 
         }
 
+
+
         private void transaction_Load(object sender, EventArgs e)
+        {
+
+
+            Form f = (Form)sender;
+
+            int resy = f.Size.Height;
+            int resx = f.Size.Width;
+
+            f.WindowState = FormWindowState.Maximized;
+
+            dx = f.Size.Width / (float)resx;
+            dy = f.Size.Height / (float)resy;
+
+
+
+            Control s = GetNextControl(f, true);
+
+            while (s != null)
+            {
+
+                Size size = new Size((int)(s.Size.Width * dx), (int)((s.Size.Height) * dy));
+                MessageBox.Show(""+s.Size.Height);
+
+                int newx = (int)(s.Location.X * dx);
+                int newy = (int)((s.Location.Y + 12)  * dy);
+
+                Point p = new Point(newx, newy);
+
+
+                s.Size = size;
+                s.Location = p;
+                s = f.GetNextControl(s, true);
+
+
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

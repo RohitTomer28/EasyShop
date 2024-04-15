@@ -56,5 +56,41 @@ namespace WindowsFormsApplication1
         {
             this.Close();   
         }
+
+        private void manager_Load(object sender, EventArgs e)
+        {
+            Form f = (Form)sender;
+
+            int resy = f.Size.Height;
+            int resx = f.Size.Width;
+
+            f.WindowState = FormWindowState.Maximized;
+
+            float dx = f.Size.Width / (float)resx;
+            float dy = f.Size.Height / (float)resy;
+
+
+
+            Control s = GetNextControl(f, true);
+
+            while (s != null)
+            {
+
+
+                Size size = new Size((int)(s.Size.Width * dx), (int)(s.Size.Height * dy));
+
+                int newx = (int)(s.Location.X * dx);
+                int newy = (int)((s.Location.Y * 1.07) * dy);
+
+                Point p = new Point(newx, newy);
+
+
+                s.Size = size;
+                s.Location = p;
+                s = f.GetNextControl(s, true);
+
+
+            }
+        }
     }
 }

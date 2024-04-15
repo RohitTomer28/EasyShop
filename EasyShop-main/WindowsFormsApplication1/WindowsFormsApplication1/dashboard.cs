@@ -26,9 +26,20 @@ namespace WindowsFormsApplication1
             this.Close();
             manager.Show();
         }
+        int resx = 0;
+        int resy = 0;
 
         private void dashboard_Load(object sender, EventArgs e)
         {
+
+
+            Form f = (Form)sender;
+
+            resy = f.Size.Height;
+            resx = f.Size.Width;
+
+            f.WindowState = FormWindowState.Maximized;
+
             //display number of customers in label1
             conn.Open();
             OracleCommand cmd = new OracleCommand();
@@ -103,6 +114,40 @@ namespace WindowsFormsApplication1
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void resChange(object sender, EventArgs e)
+        {
+            Form f = (Form)sender;
+
+            float dx = f.Size.Width / (float)resx;
+            float dy = f.Size.Height / (float)resy;
+
+
+
+            Control s = GetNextControl(f, true);
+
+            while (s != null)
+            {
+
+
+                Size size = new Size((int)(s.Size.Width * dx), (int)(s.Size.Height * dy));
+
+                int newx = (int)(s.Location.X * dx);
+                int newy = (int)(s.Location.Y * dy);
+
+                Point p = new Point(newx, newy);
+
+
+                s.Size = size;
+                s.Location = p;
+                s = f.GetNextControl(s, true);
+
+
+            }
+
+            resx = f.Size.Width;
+            resy = f.Size.Height;
         }
     }
 }

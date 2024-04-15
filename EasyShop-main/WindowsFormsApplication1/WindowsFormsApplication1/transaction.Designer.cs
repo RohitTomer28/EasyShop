@@ -51,7 +51,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(162, 388);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.textBox1.Multiline = true;
@@ -68,13 +68,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 263);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(373, 380);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 56);
             this.button2.TabIndex = 3;
@@ -85,17 +86,17 @@
             // 
             this.cost.AutoSize = true;
             this.cost.BackColor = System.Drawing.Color.Transparent;
-            this.cost.Font = new System.Drawing.Font("Arial Rounded MT Bold", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cost.ForeColor = System.Drawing.Color.AntiqueWhite;
             this.cost.Location = new System.Drawing.Point(683, 456);
             this.cost.Name = "cost";
-            this.cost.Size = new System.Drawing.Size(33, 34);
+            this.cost.Size = new System.Drawing.Size(32, 36);
             this.cost.TabIndex = 4;
             this.cost.Text = "0";
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Debit Card",
@@ -105,13 +106,13 @@
             "Netbanking"});
             this.comboBox1.Location = new System.Drawing.Point(679, 393);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 36);
+            this.comboBox1.Size = new System.Drawing.Size(175, 37);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.Text = "Cash";
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(202, 439);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.textBox2.Multiline = true;
