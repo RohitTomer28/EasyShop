@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         public transaction()
         {
             InitializeComponent();
-            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=project;Password=1234");
+            conn = new OracleConnection("Data Source=127.0.0.1:1521;Persist Security Info=True;User ID=system;Password=1234");
             conn.Open();
         }
 
@@ -329,7 +329,7 @@ namespace WindowsFormsApplication1
             {
 
                 Size size = new Size((int)(s.Size.Width * dx), (int)((s.Size.Height) * dy));
-                MessageBox.Show(""+s.Size.Height);
+
 
                 int newx = (int)(s.Location.X * dx);
                 int newy = (int)((s.Location.Y + 12)  * dy);

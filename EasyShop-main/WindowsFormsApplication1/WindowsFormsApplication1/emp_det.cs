@@ -99,8 +99,8 @@ namespace WindowsFormsApplication1
 
                 Size size = new Size((int)(s.Size.Width * dx), (int)(s.Size.Height * dy));
 
-                int newx = (int)(s.Location.X * dx);
-                int newy = (int)(s.Location.Y * dy);
+                int newx = (int)(s.Location.X * 1.02 * dx);
+                int newy = (int)(s.Location.Y * 1.04 * dy);
 
                 Point p = new Point(newx, newy);
 

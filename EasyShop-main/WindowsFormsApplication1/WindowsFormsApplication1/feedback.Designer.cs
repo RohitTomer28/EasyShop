@@ -37,6 +37,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(375, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 77);

@@ -98,8 +98,8 @@ namespace WindowsFormsApplication1
                 Size size = new Size((int)(s.Size.Width * dx), (int)(s.Size.Height * dy));
 
                 // move to new location keeping change in size in mind
-                int newx = (int)(s.Location.X * dx);
-                int newy = (int)((s.Location.Y) * dy + s.Size.Height / 2.0);
+                int newx = (int)(s.Location.X * 1.015 * dx);
+                int newy = (int)(s.Location.Y * 1.03 * dy);
 
                 // fix the display location
 
